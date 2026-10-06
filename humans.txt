@@ -1,0 +1,10 @@
+/* TEAM */
+Konzept, Design und Umsetzung: RITT HAPPENS
+Web: https://ritt-happens.de
+Standort: Frensdorf, Bamberg
+
+/* SITE */
+Sprache: Deutsch
+Technik: HTML, CSS, JavaScript
+Schrift: Readex Pro (SIL Open Font License)
+Icons: Phosphor Icons (MIT)
