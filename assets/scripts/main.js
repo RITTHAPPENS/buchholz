@@ -36,4 +36,12 @@
 			}
 		});
 	}
+
+	document.querySelectorAll("[data-compare]").forEach((figure) => {
+		const range = figure.querySelector("[data-compare-range]");
+		if (!range) return;
+		const update = () => figure.style.setProperty("--pos", `${range.value}%`);
+		range.addEventListener("input", update);
+		update();
+	});
 })();
