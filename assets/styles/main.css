@@ -1173,18 +1173,6 @@ address {
 	line-height: 1.4;
 }
 
-.bundeswehr-note {
-	max-width: 80ch;
-	margin-top: clamp(2rem, 4vw, 3rem);
-	font-size: var(--fs-small);
-	color: var(--ink-2);
-}
-
-.bundeswehr-note strong {
-	font-weight: 500;
-	color: var(--ink);
-}
-
 /* Karriere */
 
 .career {
