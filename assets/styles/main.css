@@ -1142,58 +1142,47 @@ address {
 	color: var(--ink-2);
 }
 
-.clients__types {
+.clients__sub {
+	margin: -0.5rem 0 1.25rem;
+	font-size: var(--fs-lead);
+	font-weight: 500;
+	color: var(--ink);
+}
+
+.clients__lead {
+	margin-bottom: 1rem;
+	font-weight: 400;
+	color: var(--ink);
+}
+
+.clients__lists {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+	column-gap: 1.75rem;
+	align-items: start;
+}
+
+.clients__types {
 	border-top: 1px solid var(--line);
 }
 
 .clients__types li {
-	padding: 0.75rem 0;
+	padding: 0.7rem 0;
 	border-bottom: 1px solid var(--line);
-	font-weight: 400;
+	font-size: 0.9375rem;
 	line-height: 1.4;
 }
 
-.clients__types li:nth-child(odd) {
-	padding-right: 1rem;
+.bundeswehr-note {
+	max-width: 80ch;
+	margin-top: clamp(2rem, 4vw, 3rem);
+	font-size: var(--fs-small);
+	color: var(--ink-2);
 }
 
-.bundeswehr {
-	margin-top: clamp(2.5rem, 5vw, 4rem);
-	padding: clamp(1.5rem, 3vw, 2.25rem);
-	border: 1px solid #c8d9ea;
-	border-radius: var(--radius);
-	background: var(--brand-soft);
-}
-
-.bundeswehr__title {
-	font-size: var(--fs-h3);
-	margin-bottom: 1.25rem;
-}
-
-.bundeswehr__list {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 0.9rem 2.5rem;
-}
-
-.bundeswehr__list li {
-	position: relative;
-	padding-left: 1.1rem;
-	color: #31475f;
-	line-height: 1.5;
-}
-
-.bundeswehr__list li::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	top: 0.6em;
-	width: 6px;
-	height: 6px;
-	border-radius: 1px;
-	background: var(--brand);
+.bundeswehr-note strong {
+	font-weight: 500;
+	color: var(--ink);
 }
 
 /* Karriere */
@@ -1637,8 +1626,7 @@ a.contact__line:hover {
 	}
 
 	.checklist,
-	.clients__types,
-	.bundeswehr__list,
+	.clients__lists,
 	.ga-feature__list,
 	.tiles,
 	.tiles--key {
