@@ -578,6 +578,7 @@ address {
 
 .intro {
 	position: relative;
+	isolation: isolate;
 	padding-block: var(--section);
 	overflow: hidden;
 }
@@ -585,13 +586,20 @@ address {
 .intro::before {
 	content: "";
 	position: absolute;
-	inset: 6rem -10% auto auto;
-	width: 70%;
-	height: 34rem;
-	background: url("../images/funktionsliste-vdi3814-1600x1118.webp") right top / cover no-repeat;
-	opacity: 0.16;
-	mask-image: linear-gradient(200deg, #000 25%, transparent 80%);
+	inset: 0;
+	z-index: -1;
+	background: linear-gradient(90deg, rgb(242 245 248 / 0.93) 0%, rgb(242 245 248 / 0.86) 55%, rgb(242 245 248 / 0.8) 100%);
 	pointer-events: none;
+}
+
+.intro__bg {
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center 30%;
 }
 
 .intro__grid {
@@ -609,7 +617,7 @@ address {
 
 .intro__text {
 	max-width: 62ch;
-	color: var(--ink-2);
+	color: #2c3a4c;
 }
 
 .intro__lead {
@@ -637,20 +645,6 @@ address {
 	max-width: 70ch;
 	font-size: var(--fs-small);
 	color: var(--ink-2);
-}
-
-.team-photo {
-	position: relative;
-	margin-top: clamp(3rem, 6vw, 5rem);
-	margin-bottom: 0;
-}
-
-.team-photo img {
-	width: 100%;
-	aspect-ratio: 21 / 9;
-	object-fit: cover;
-	object-position: center 30%;
-	border-radius: var(--radius);
 }
 
 /* Schwerpunkte */
