@@ -24,8 +24,8 @@
 
 	<link rel="preload" href="assets/fonts/readex-pro-latin.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="assets/images/hero-gebaeude-1600x900.webp" as="image" imagesrcset="assets/images/hero-gebaeude-960x540.webp 960w, assets/images/hero-gebaeude-1600x900.webp 1600w" imagesizes="100vw">
-	<link rel="stylesheet" href="assets/styles/main.css?v=20261013g">
-	<script src="assets/scripts/main.js?v=20261013g" defer></script>
+	<link rel="stylesheet" href="assets/styles/main.css?v=20261013h">
+	<script src="assets/scripts/main.js?v=20261013h" defer></script>
 
 	<script type="application/ld+json">
 	{
@@ -344,16 +344,16 @@
 						<h2 class="section-title" id="referenzen-titel">Referenzen</h2>
 						<p class="clients__sub">Öffentliche und private Auftraggeber</p>
 						<p>Wir haben inzwischen über 800 Projekte erfolgreich abgewickelt. Davon ca.&nbsp;70&nbsp;% für die öffentliche Hand und 30&nbsp;% für private Auftraggeber.</p>
-						<dl class="clients__stats">
-							<div>
-								<dt>ca.&nbsp;70&nbsp;%</dt>
-								<dd>Öffentliche Hand</dd>
+						<div class="clients__split" role="img" aria-label="Anteil der Projekte: ca. 70 % öffentliche Hand, 30 % private Auftraggeber">
+							<div class="clients__seg">
+								<strong>ca.&nbsp;70&nbsp;%</strong>
+								<span>Öffentliche Hand</span>
 							</div>
-							<div>
-								<dt>ca.&nbsp;30&nbsp;%</dt>
-								<dd>Private Auftraggeber</dd>
+							<div class="clients__seg clients__seg--private">
+								<strong>30&nbsp;%</strong>
+								<span>Private Auftraggeber</span>
 							</div>
-						</dl>
+						</div>
 					</div>
 					<div>
 						<p class="clients__lead">Dabei handelt es sich um Erstinstallationen, Sanierungen und Migrationen im laufenden Betrieb für:</p>
@@ -384,7 +384,7 @@
 		<section class="career" aria-labelledby="karriere-titel">
 			<div class="container">
 				<h2 class="section-title" id="karriere-titel">Arbeiten im Spezialistenteam für Gebäudeautomation</h2>
-				<p class="career__intro">Beide haben bei uns als Projektleiter angefangen und führen das Büro heute gemeinsam. Gründer Dirk Buchholz steht uns weiterhin beratend zur Seite. Bei uns arbeiten Sie in einem kleinen, familiären Team an Projekten für Hochschulen, Ministerien und Unternehmen, vom ersten Konzept bis zur Inbetriebnahme.</p>
+				<p class="career__intro">Frederick Abt und Franz Kaufmann haben bei uns als Projektleiter angefangen und führen das Büro heute gemeinsam. Gründer Dirk Buchholz steht uns weiterhin beratend zur Seite. Bei uns arbeiten Sie in einem kleinen, familiären Team an Projekten für Hochschulen, Ministerien und Unternehmen, vom ersten Konzept bis zur Inbetriebnahme.</p>
 				<div class="career__grid">
 					<div class="career__people">
 						<article class="person">
@@ -472,7 +472,9 @@
 				</ul>
 			</nav>
 		</div>
-		<p class="container site-footer__copy">© 2026 Ingenieurbüro Buchholz GmbH</p>
+		<div class="container">
+			<p class="site-footer__copy">© 2026 Ingenieurbüro Buchholz GmbH</p>
+		</div>
 	</footer>
 </body>
 </html>
