@@ -864,15 +864,15 @@ address {
 
 .existing {
 	padding-block: var(--section);
-	background: var(--panel);
-	border-block: 1px solid var(--line);
+	background: var(--night);
+	color: var(--on-night);
 }
 
 .existing__grid {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr);
+	grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
 	gap: clamp(2rem, 6vw, 6rem);
-	align-items: start;
+	align-items: center;
 }
 
 .existing__text .section-title {
@@ -882,19 +882,44 @@ address {
 
 .existing__text p {
 	max-width: 58ch;
-	color: var(--ink-2);
+	color: var(--on-night-2);
 }
 
-.existing__panel {
-	padding: clamp(1.5rem, 3vw, 2.25rem);
-	background: var(--ground);
-	border: 1px solid var(--line);
+.alarms {
+	padding: clamp(1.5rem, 3vw, 2rem);
+	border: 1px solid rgb(238 244 250 / 0.14);
 	border-radius: var(--radius);
+	background: var(--night-2);
 }
 
-.existing__panel-title {
+.alarms__title {
+	margin-bottom: 1rem;
 	font-weight: 500;
-	margin-bottom: 1.1rem;
+	color: var(--on-night);
+}
+
+.alarms__list {
+	display: grid;
+	gap: 0.5rem;
+}
+
+.alarms__list li {
+	display: flex;
+	align-items: center;
+	gap: 0.85rem;
+	padding: 0.8rem 1rem;
+	border-radius: var(--radius);
+	background: rgb(13 26 43 / 0.6);
+	border: 1px solid rgb(238 244 250 / 0.08);
+	font-size: 0.9375rem;
+	line-height: 1.4;
+	color: var(--on-night);
+}
+
+.alarms__list .icon {
+	width: 1.35rem;
+	height: 1.35rem;
+	fill: #f0b54a;
 }
 
 .checklist {
