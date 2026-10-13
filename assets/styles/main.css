@@ -1105,7 +1105,7 @@ address {
 	display: grid;
 	grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
 	gap: clamp(2rem, 6vw, 6rem);
-	align-items: center;
+	align-items: start;
 	padding-top: var(--section);
 	border-top: 1px solid var(--line);
 }
@@ -1115,35 +1115,31 @@ address {
 	color: var(--ink-2);
 }
 
-.clients__split {
+.clients__stats {
 	display: grid;
-	grid-template-columns: 7fr 3fr;
-	gap: 4px;
-	margin: 1.5rem 0 1.75rem;
-	font-size: var(--fs-small);
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	margin: 2rem 0 0;
 }
 
-.clients__bar {
-	padding: 0.9rem 1rem;
+.clients__stats div {
+	padding: 1.25rem 1.5rem;
+	border: 1px solid var(--line);
 	border-radius: var(--radius);
-	line-height: 1.3;
+	background: var(--panel);
 }
 
-.clients__bar strong {
-	display: block;
-	font-size: 1.375rem;
+.clients__stats dt {
+	font-size: clamp(1.75rem, 3vw, 2.25rem);
 	font-weight: 500;
+	line-height: 1.1;
+	color: var(--brand-strong);
 	font-variant-numeric: tabular-nums;
 }
 
-.clients__bar--public {
-	background: var(--brand);
-	color: #fff;
-}
-
-.clients__bar--private {
-	background: var(--brand-soft);
-	color: var(--brand-strong);
+.clients__stats dd {
+	margin: 0.35rem 0 0;
+	color: var(--ink-2);
 }
 
 .clients__types {
@@ -1154,36 +1150,49 @@ address {
 
 .clients__types li {
 	padding: 0.75rem 0;
-	line-height: 1.4;
 	border-bottom: 1px solid var(--line);
 	font-weight: 400;
+	line-height: 1.4;
 }
 
 .clients__types li:nth-child(odd) {
 	padding-right: 1rem;
 }
 
-.clients__extra {
+.bundeswehr {
+	margin-top: clamp(2.5rem, 5vw, 4rem);
+	padding: clamp(1.5rem, 3vw, 2.25rem);
+	border: 1px solid #c8d9ea;
+	border-radius: var(--radius);
+	background: var(--brand-soft);
+}
+
+.bundeswehr__title {
+	font-size: var(--fs-h3);
+	margin-bottom: 1.25rem;
+}
+
+.bundeswehr__list {
 	display: grid;
-	gap: 0.6rem;
-	margin-top: 1.5rem;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.9rem 2.5rem;
 }
 
-.clients__extra li {
+.bundeswehr__list li {
 	position: relative;
-	padding-left: 1.6rem;
-	font-size: 0.9375rem;
-	color: var(--ink-2);
-	line-height: 1.45;
+	padding-left: 1.1rem;
+	color: #31475f;
+	line-height: 1.5;
 }
 
-.clients__extra li::before {
+.bundeswehr__list li::before {
 	content: "";
 	position: absolute;
 	left: 0;
 	top: 0.6em;
-	width: 0.9rem;
-	height: 1px;
+	width: 6px;
+	height: 6px;
+	border-radius: 1px;
 	background: var(--brand);
 }
 
@@ -1195,38 +1204,65 @@ address {
 	color: var(--on-night);
 }
 
+.career__intro {
+	max-width: 62ch;
+	color: var(--on-night-2);
+}
+
 .career__grid {
 	display: grid;
-	grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
-	gap: clamp(2rem, 6vw, 5.5rem);
-	align-items: center;
+	grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+	gap: clamp(2rem, 5vw, 4.5rem);
+	align-items: start;
+	margin-top: clamp(2rem, 4vw, 3rem);
 }
 
-.career__photo {
-	margin: 0;
+.career__people {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.5rem;
 }
 
-.career__photo img {
+.person img {
 	width: 100%;
+	aspect-ratio: 4 / 5;
+	object-fit: cover;
 	border-radius: var(--radius);
+	margin-bottom: 1rem;
 }
 
-.career__photo figcaption {
-	margin-top: 0.75rem;
+.person h3 {
+	font-size: 1.25rem;
+}
+
+.person__role {
+	margin: 0.15rem 0 0.6rem;
+	color: var(--signal);
+	font-weight: 500;
+}
+
+.person__quals {
+	font-size: var(--fs-small);
+	color: var(--on-night);
+	line-height: 1.5;
+}
+
+.person p:last-child {
 	font-size: var(--fs-small);
 	color: var(--on-night-2);
+	line-height: 1.5;
 }
 
-.career__text p {
-	color: var(--on-night-2);
-	max-width: 52ch;
-}
-
-.career__open {
-	padding: 1rem 1.25rem;
-	border: 1px solid rgb(63 196 224 / 0.4);
+.career__box {
+	padding: clamp(1.5rem, 3vw, 2rem);
+	border: 1px solid rgb(238 244 250 / 0.14);
 	border-radius: var(--radius);
-	background: rgb(63 196 224 / 0.06);
+	background: var(--night-2);
+}
+
+.career__box .career__open {
+	margin-bottom: 1.25rem;
+	color: var(--on-night-2);
 }
 
 .career__open strong {
@@ -1602,6 +1638,7 @@ a.contact__line:hover {
 
 	.checklist,
 	.clients__types,
+	.bundeswehr__list,
 	.ga-feature__list,
 	.tiles,
 	.tiles--key {
