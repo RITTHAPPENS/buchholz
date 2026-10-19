@@ -521,15 +521,6 @@ address {
 	left: calc(100% + 1.4rem - 4px);
 }
 
-.datapoint__code {
-	padding: 0.1rem 0.35rem;
-	border-radius: 2px;
-	background: rgb(63 196 224 / 0.16);
-	color: var(--signal);
-	font-size: 0.6875rem;
-	font-weight: 500;
-	letter-spacing: 0.04em;
-}
 
 /* Kennzahlen */
 
@@ -818,6 +809,165 @@ address {
 	background: #fff;
 }
 
+.tiles--key .tile .tile__sub {
+	flex: 0 0 auto;
+	margin: -0.25rem 0 0.75rem;
+	font-size: var(--fs-small);
+	font-weight: 500;
+	color: var(--brand-strong);
+}
+
+.tile__list {
+	flex: 1;
+	display: grid;
+	align-content: start;
+	gap: 0.3rem;
+	margin-top: 0.15rem;
+	font-size: 0.9375rem;
+	line-height: 1.45;
+	color: var(--ink-2);
+}
+
+.tile p + .tile__list {
+	margin-top: 0.4rem;
+}
+
+.tile p:has(+ .tile__list) {
+	flex: 0 0 auto;
+	margin-bottom: 0;
+}
+
+.tile__list li {
+	position: relative;
+	padding-left: 0.9rem;
+}
+
+.tile__list li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.6em;
+	width: 5px;
+	height: 5px;
+	border-radius: 1px;
+	background: var(--brand);
+}
+
+.tiles--key .tile__list {
+	font-size: var(--fs-body);
+	color: #31475f;
+}
+
+.tile__img {
+	width: 100%;
+	height: auto;
+	margin-top: 1.25rem;
+	border-radius: var(--radius);
+	border: 1px solid #c8d9ea;
+}
+
+/* Schemata */
+
+.schemes {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.scheme {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	background: var(--panel);
+	color: var(--ink);
+	text-decoration: none;
+	overflow: hidden;
+	cursor: zoom-in;
+	transition: border-color 0.2s var(--ease-out);
+}
+
+.scheme img {
+	width: 100%;
+	aspect-ratio: 3 / 2;
+	object-fit: contain;
+	padding: 0.75rem;
+	background: #fff;
+	border-bottom: 1px solid var(--line);
+	transition: transform 0.35s var(--ease-out);
+}
+
+.scheme span {
+	padding: 0.8rem 1rem;
+	font-size: var(--fs-small);
+	font-weight: 500;
+}
+
+.scheme:hover {
+	color: var(--brand);
+	border-color: var(--brand);
+}
+
+.scheme:hover img {
+	transform: scale(1.03);
+}
+
+.lightbox {
+	width: min(96vw, 110rem);
+	max-width: none;
+	max-height: 94vh;
+	padding: 0;
+	border: 0;
+	border-radius: var(--radius);
+	background: #fff;
+	color: var(--ink);
+	overflow: hidden;
+}
+
+.lightbox::backdrop {
+	background: rgb(13 26 43 / 0.82);
+}
+
+.lightbox__figure {
+	display: grid;
+	margin: 0;
+}
+
+.lightbox__img {
+	width: 100%;
+	max-height: calc(94vh - 3.25rem);
+	object-fit: contain;
+	background: #fff;
+}
+
+.lightbox__caption {
+	padding: 0.9rem 1.25rem;
+	border-top: 1px solid var(--line);
+	font-size: var(--fs-small);
+	font-weight: 500;
+}
+
+.lightbox__close {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.75rem;
+	display: grid;
+	place-items: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	border: 0;
+	border-radius: var(--radius);
+	background: var(--night);
+	color: var(--on-night);
+	cursor: pointer;
+}
+
+.lightbox__close:hover {
+	background: var(--brand);
+}
+
 .thermo-tile {
 	display: grid;
 	grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
@@ -1043,6 +1193,21 @@ address {
 
 .process {
 	padding-block: var(--section);
+}
+
+.process__head {
+	display: grid;
+	grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+	gap: clamp(2rem, 5vw, 4.5rem);
+	align-items: center;
+}
+
+.process__photo {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 3 / 2;
+	object-fit: cover;
+	border-radius: var(--radius);
 }
 
 .process__line {
@@ -1297,7 +1462,7 @@ address {
 	position: absolute;
 	inset: 0;
 	z-index: -1;
-	background: linear-gradient(90deg, rgb(242 245 248 / 0.97) 0%, rgb(242 245 248 / 0.9) 45%, rgb(242 245 248 / 0.55) 100%);
+	background: linear-gradient(90deg, rgb(242 245 248 / 0.94) 0%, rgb(242 245 248 / 0.78) 42%, rgb(242 245 248 / 0.12) 78%);
 }
 
 .contact__grid {
@@ -1574,6 +1739,14 @@ a.contact__line:hover {
 
 	.clients__grid > div:first-child {
 		position: static;
+	}
+
+	.process__head {
+		grid-template-columns: 1fr;
+	}
+
+	.schemes {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
 	.ga-feature,
