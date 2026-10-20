@@ -869,17 +869,7 @@ address {
 .scheme span {
 	padding: 0.8rem 1rem;
 	font-size: var(--fs-small);
-	color: var(--ink-2);
-}
-
-.scheme strong {
-	display: block;
 	font-weight: 500;
-	color: var(--ink);
-}
-
-.scheme:hover strong {
-	color: var(--brand);
 }
 
 .scheme:hover {
