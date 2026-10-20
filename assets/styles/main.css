@@ -521,7 +521,6 @@ address {
 	left: calc(100% + 1.4rem - 4px);
 }
 
-
 /* Kennzahlen */
 
 .facts {
@@ -754,12 +753,6 @@ address {
 	transition: border-color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
 }
 
-.tile:hover {
-	color: var(--ink);
-	border-color: var(--brand);
-	transform: translateY(-2px);
-}
-
 .tile h3 {
 	font-size: 1.0625rem;
 	margin-bottom: 0.5rem;
@@ -770,24 +763,6 @@ address {
 	font-size: 0.9375rem;
 	line-height: 1.5;
 	color: var(--ink-2);
-}
-
-.tile__more {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.4rem;
-	margin-top: 1.1rem;
-	font-size: var(--fs-small);
-	font-weight: 500;
-	color: var(--brand);
-}
-
-.tile:hover .tile__more .icon {
-	transform: translateX(3px);
-}
-
-.tile__more .icon {
-	transition: transform 0.25s var(--ease-out);
 }
 
 .tiles--key .tile {
@@ -858,18 +833,6 @@ address {
 	color: #31475f;
 }
 
-.tile__img--compact {
-	max-width: 24rem;
-}
-
-.tile__img {
-	width: 100%;
-	height: auto;
-	margin-top: 1.25rem;
-	border-radius: var(--radius);
-	border: 1px solid #c8d9ea;
-}
-
 /* Schemata */
 
 .schemes {
@@ -906,7 +869,17 @@ address {
 .scheme span {
 	padding: 0.8rem 1rem;
 	font-size: var(--fs-small);
+	color: var(--ink-2);
+}
+
+.scheme strong {
+	display: block;
 	font-weight: 500;
+	color: var(--ink);
+}
+
+.scheme:hover strong {
+	color: var(--brand);
 }
 
 .scheme:hover {
@@ -1209,9 +1182,7 @@ address {
 .process__photo {
 	width: 100%;
 	height: auto;
-	aspect-ratio: 16 / 9;
-	object-fit: cover;
-	object-position: center 12%;
+	aspect-ratio: auto;
 	border-radius: var(--radius);
 }
 
@@ -1762,7 +1733,6 @@ a.contact__line:hover {
 	.tiles {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
-
 
 	.process__line {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
