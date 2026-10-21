@@ -2,7 +2,7 @@
 	const header = document.querySelector("[data-header]");
 	const toggle = document.querySelector("[data-nav-toggle]");
 	const nav = document.getElementById("hauptnavigation");
-	const hero = document.querySelector(".hero");
+	const hero = document.querySelector(".hero, .page-hero");
 
 	if (header && hero && "IntersectionObserver" in window) {
 		const observer = new IntersectionObserver(

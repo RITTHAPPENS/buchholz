@@ -340,7 +340,8 @@ address {
 	transition: transform 0.3s var(--ease-out);
 }
 
-.site-nav__list a:hover::after {
+.site-nav__list a:hover::after,
+.site-nav__list a[aria-current="page"]::after {
 	transform: scaleX(1);
 }
 
@@ -1525,6 +1526,212 @@ a.contact__line:hover {
 	margin-top: 2.5rem;
 	padding-top: 1.5rem;
 	border-top: 1px solid rgb(238 244 250 / 0.12);
+}
+
+/* Unterseiten */
+
+.page-hero {
+	position: relative;
+	isolation: isolate;
+	padding: calc(4.5rem + clamp(3rem, 7vw, 5.5rem)) 0 calc(4.5rem + clamp(2.5rem, 5vw, 4rem));
+	background: var(--night);
+	color: var(--on-night);
+	overflow: hidden;
+}
+
+.page-hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background:
+		linear-gradient(rgb(63 196 224 / 0.06) 1px, transparent 1px) 0 0 / 3rem 3rem,
+		linear-gradient(90deg, rgb(63 196 224 / 0.06) 1px, transparent 1px) 0 0 / 3rem 3rem;
+	mask-image: linear-gradient(90deg, transparent 0%, #000 55%, #000 100%);
+}
+
+.page-hero__title {
+	font-size: var(--fs-h1);
+	margin-bottom: 1.25rem;
+}
+
+.page-hero__lead {
+	max-width: 62ch;
+	font-size: var(--fs-lead);
+	color: var(--on-night-2);
+}
+
+.jumpnav ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-top: 2.25rem;
+	max-width: 56rem;
+}
+
+.jumpnav a {
+	display: inline-block;
+	padding: 0.45rem 0.85rem;
+	border: 1px solid rgb(238 244 250 / 0.22);
+	border-radius: var(--radius);
+	color: var(--on-night);
+	font-size: var(--fs-small);
+	text-decoration: none;
+	transition: border-color 0.2s var(--ease-out), background-color 0.2s var(--ease-out);
+}
+
+.jumpnav a:hover {
+	border-color: var(--signal);
+	background: rgb(63 196 224 / 0.1);
+	color: #fff;
+}
+
+.facts__list--text dt {
+	font-size: clamp(1.125rem, 1.6vw, 1.3125rem);
+}
+
+.facts__list--text dd {
+	margin-top: 0.4rem;
+}
+
+[id] {
+	scroll-margin-top: 6rem;
+}
+
+.service {
+	padding-block: var(--section) 0;
+}
+
+.service--ga {
+	padding-bottom: var(--section);
+}
+
+.service__intro {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: clamp(1.5rem, 4vw, 3.5rem);
+	margin-bottom: 2.5rem;
+}
+
+.service__intro p:not(.section-lead) {
+	color: var(--ink-2);
+}
+
+.service__subhead {
+	margin: 3rem 0 0;
+	font-size: var(--fs-h3);
+}
+
+.ga-feature__main h3 {
+	margin-bottom: 1.25rem;
+}
+
+.hoai {
+	padding-block: var(--section);
+	background: var(--night);
+	color: var(--on-night);
+}
+
+.hoai .section-lead {
+	color: var(--on-night-2);
+}
+
+.hoai__grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1px;
+	margin-top: 3rem;
+	background: rgb(238 244 250 / 0.12);
+	border: 1px solid rgb(238 244 250 / 0.12);
+	border-radius: var(--radius);
+	overflow: hidden;
+}
+
+.hoai__grid li {
+	padding: clamp(1.25rem, 2.5vw, 1.75rem);
+	background: var(--night);
+}
+
+.hoai__no {
+	display: block;
+	margin-bottom: 0.6rem;
+	color: var(--signal);
+	font-size: var(--fs-small);
+	font-weight: 500;
+	font-variant-numeric: tabular-nums;
+}
+
+.hoai__grid h3 {
+	margin-bottom: 0.4rem;
+	font-size: 1.0625rem;
+}
+
+.hoai__grid p {
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	color: var(--on-night-2);
+}
+
+.tile__title {
+	font-size: var(--fs-h3);
+	margin-bottom: 0.5rem;
+}
+
+.tile__list--defs {
+	gap: 0.6rem;
+}
+
+.tile__list--defs strong {
+	font-weight: 500;
+	color: var(--ink);
+}
+
+.service--rows {
+	padding-bottom: var(--section);
+}
+
+.srow {
+	display: grid;
+	grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+	gap: clamp(1.5rem, 4vw, 4rem);
+	padding-block: clamp(2rem, 4vw, 3rem);
+	border-top: 1px solid var(--line);
+}
+
+.srow:last-child {
+	border-bottom: 1px solid var(--line);
+}
+
+.srow__head h2 {
+	font-size: var(--fs-h3);
+}
+
+.srow__body {
+	display: grid;
+	grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+	gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.srow__body p {
+	color: var(--ink-2);
+}
+
+@media (max-width: 64rem) {
+	.service__intro,
+	.srow,
+	.srow__body {
+		grid-template-columns: 1fr;
+	}
+
+	.hoai__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 40rem) {
+	.hoai__grid {
+		grid-template-columns: 1fr;
+	}
 }
 
 /* Bewegung */
