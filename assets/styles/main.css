@@ -254,8 +254,13 @@ address {
 	transition: background-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), color 0.3s var(--ease-out);
 }
 
+.site-header.is-stuck {
+	background: var(--night);
+	box-shadow: 0 1px 0 rgb(238 244 250 / 0.08);
+}
+
 .site-header.is-scrolled {
-	background: rgb(251 252 253 / 0.96);
+	background: var(--panel);
 	color: var(--ink);
 	box-shadow: 0 1px 0 var(--line), 0 6px 20px -12px rgb(19 32 47 / 0.25);
 }

@@ -4,6 +4,14 @@
 	const nav = document.getElementById("hauptnavigation");
 	const hero = document.querySelector(".hero, .page-hero");
 
+	if (header && "IntersectionObserver" in window) {
+		const sentinel = document.createElement("div");
+		sentinel.setAttribute("aria-hidden", "true");
+		sentinel.style.cssText = "position:absolute;top:0;left:0;width:1px;height:8px;pointer-events:none";
+		document.body.prepend(sentinel);
+		new IntersectionObserver(([entry]) => header.classList.toggle("is-stuck", !entry.isIntersecting)).observe(sentinel);
+	}
+
 	if (header && hero && "IntersectionObserver" in window) {
 		const observer = new IntersectionObserver(
 			([entry]) => header.classList.toggle("is-scrolled", !entry.isIntersecting),
