@@ -82,25 +82,40 @@
 	}
 	const quiz = document.querySelector("[data-quiz]");
 	if (quiz) {
-		const links = document.querySelectorAll("[data-quiz-mail]");
+		const mail = document.querySelector("[data-quiz-mail]");
+		const summary = document.querySelector("[data-quiz-summary]");
 		const fields = [...quiz.querySelectorAll("fieldset")];
+		const empty = summary.innerHTML;
 
 		const update = () => {
-			const lines = fields
-				.map((fieldset) => {
-					const answer = [...fieldset.querySelectorAll("input:checked")].map((input) => input.value).join(", ");
-					if (!answer) return null;
-					const question = fieldset.querySelector("legend").firstChild.textContent.trim();
-					return `${question}\n${answer}`;
-				})
-				.filter(Boolean);
+			const answers = fields
+				.map((fieldset) => ({
+					question: fieldset.querySelector("legend").textContent.trim(),
+					answer: [...fieldset.querySelectorAll("input:checked")].map((input) => input.value).join(", "),
+				}))
+				.filter((item) => item.answer);
+
+			if (answers.length) {
+				summary.replaceChildren(
+					...answers.map(({ question, answer }) => {
+						const li = document.createElement("li");
+						const label = document.createElement("span");
+						label.textContent = question;
+						li.append(label, answer);
+						return li;
+					})
+				);
+			} else {
+				summary.innerHTML = empty;
+			}
 
 			let href = `mailto:bewerbung@ib-buchholz.de?subject=${encodeURIComponent("Bewerbung")}`;
-			if (lines.length) {
-				const body = `Guten Tag Herr Abt,\n\nanbei meine Bewerbung. Vorab ein paar Angaben:\n\n${lines.join("\n\n")}\n\nViele Grüße\n`;
+			if (answers.length) {
+				const lines = answers.map(({ question, answer }) => `${question}: ${answer}`).join("\n");
+				const body = `Guten Tag Herr Abt,\n\nanbei meine Bewerbung. Vorab ein paar Angaben:\n\n${lines}\n\nViele Grüße\n`;
 				href += `&body=${encodeURIComponent(body)}`;
 			}
-			links.forEach((link) => link.setAttribute("href", href));
+			mail.setAttribute("href", href);
 		};
 
 		quiz.addEventListener("change", update);
