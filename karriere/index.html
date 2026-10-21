@@ -23,8 +23,8 @@
 	<link rel="manifest" href="../site.webmanifest">
 
 	<link rel="preload" href="../assets/fonts/readex-pro-latin.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="stylesheet" href="../assets/styles/main.css?v=20261021d">
-	<script src="../assets/scripts/main.js?v=20261021d" defer></script>
+	<link rel="stylesheet" href="../assets/styles/main.css?v=20261021e">
+	<script src="../assets/scripts/main.js?v=20261021e" defer></script>
 </head>
 <body>
 	<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
@@ -106,7 +106,7 @@
 						</ul>
 						</div>
 					</div>
-					<a class="button button--primary" href="#bewerbung">Jetzt bewerben <svg class="icon" aria-hidden="true"><use href="../assets/images/icons.svg?v=20261021a#i-arrow-right"></use></svg></a>
+					<a class="button button--primary" href="#kurzcheck">Jetzt bewerben <svg class="icon" aria-hidden="true"><use href="../assets/images/icons.svg?v=20261021a#i-arrow-right"></use></svg></a>
 				</article>
 			</div>
 		</section>
@@ -140,6 +140,7 @@
 			</div>
 		</section>
 
+
 		<section class="perks" aria-labelledby="vorteile-titel">
 			<div class="container">
 				<h2 class="section-title" id="vorteile-titel">Was wir bieten</h2>
@@ -156,6 +157,69 @@
 					<li><svg class="icon" aria-hidden="true"><use href="../assets/images/icons.svg?v=20261021a#i-check"></use></svg>Weitere steuerfreie Leistungen</li>
 					<li><svg class="icon" aria-hidden="true"><use href="../assets/images/icons.svg?v=20261021a#i-check"></use></svg>Zentral am Romanplatz</li>
 				</ul>
+			</div>
+		</section>
+
+		<section class="quiz" id="kurzcheck" aria-labelledby="quiz-titel">
+			<div class="container">
+				<h2 class="section-title" id="quiz-titel">In vier Klicks zur Bewerbung</h2>
+				<p class="section-lead">Beantworten Sie vier kurze Fragen. Am Ende öffnet sich Ihr E-Mail-Programm mit Ihren Antworten, Sie hängen nur noch Ihren Lebenslauf an.</p>
+				<form class="quiz__card" data-quiz novalidate>
+					<p class="quiz__progress" aria-live="polite"><span data-quiz-step>Frage 1</span> von 4</p>
+					<div class="quiz__bar" aria-hidden="true"><span data-quiz-bar></span></div>
+
+					<fieldset class="quiz__step" data-step="1">
+						<legend>Haben Sie bereits Erfahrung in der Gebäudeautomation, TGA oder MSR gesammelt?</legend>
+						<div class="quiz__options">
+							<label class="quiz__opt"><input type="radio" name="erfahrung" value="Ja, ich arbeite aktuell in der Gebäudeautomation"><span>Ja, ich arbeite aktuell in der Gebäudeautomation</span></label>
+							<label class="quiz__opt"><input type="radio" name="erfahrung" value="Ja, ich komme aus der TGA/MSR und habe Berührungspunkte zur Gebäudeautomation"><span>Ja, ich komme aus der TGA/MSR und habe Berührungspunkte zur Gebäudeautomation</span></label>
+							<label class="quiz__opt"><input type="radio" name="erfahrung" value="Nein, aber ich möchte mich in die Gebäudeautomation einarbeiten"><span>Nein, aber ich möchte mich in die Gebäudeautomation einarbeiten</span></label>
+							<label class="quiz__opt"><input type="radio" name="erfahrung" value="Nein, ich habe keinerlei Berührungspunkte zu diesem Bereich"><span>Nein, ich habe keinerlei Berührungspunkte zu diesem Bereich</span></label>
+						</div>
+					</fieldset>
+
+					<fieldset class="quiz__step" data-step="2" hidden>
+						<legend>Mit welchen der folgenden Programme haben Sie bereits gearbeitet?</legend>
+						<p class="quiz__hint">Mehrfachauswahl möglich</p>
+						<div class="quiz__options">
+							<label class="quiz__opt quiz__opt--check"><input type="checkbox" name="programme" value="TRIC/WSCAD/RR-Schema"><span>TRIC/WSCAD/RR-Schema</span></label>
+							<label class="quiz__opt quiz__opt--check"><input type="checkbox" name="programme" value="iTWO"><span>iTWO</span></label>
+							<label class="quiz__opt quiz__opt--check"><input type="checkbox" name="programme" value="Andere GA-Planungssoftware"><span>Andere GA-Planungssoftware</span></label>
+							<label class="quiz__opt quiz__opt--check"><input type="checkbox" name="programme" value="Anderes Ausschreibungsprogramm"><span>Anderes Ausschreibungsprogramm</span></label>
+						</div>
+						<button class="button button--primary quiz__next" type="button" data-quiz-next>Weiter <svg class="icon" aria-hidden="true"><use href="../assets/images/icons.svg?v=20261021a#i-arrow-right"></use></svg></button>
+					</fieldset>
+
+					<fieldset class="quiz__step" data-step="3" hidden>
+						<legend>Wie viele Jahre Berufserfahrung haben Sie im Bereich Gebäudeautomation, TGA oder MSR?</legend>
+						<div class="quiz__options">
+							<label class="quiz__opt"><input type="radio" name="jahre" value="Mehr als 5 Jahre"><span>Mehr als 5 Jahre</span></label>
+							<label class="quiz__opt"><input type="radio" name="jahre" value="2 bis 5 Jahre"><span>2 bis 5 Jahre</span></label>
+							<label class="quiz__opt"><input type="radio" name="jahre" value="Weniger als 2 Jahre, aber erste Berührungspunkte"><span>Weniger als 2 Jahre, aber erste Berührungspunkte</span></label>
+							<label class="quiz__opt"><input type="radio" name="jahre" value="Keine Berufserfahrung in diesem Bereich"><span>Keine Berufserfahrung in diesem Bereich</span></label>
+						</div>
+					</fieldset>
+
+					<fieldset class="quiz__step" data-step="4" hidden>
+						<legend>Wie gut sind Ihre Deutschkenntnisse?</legend>
+						<div class="quiz__options">
+							<label class="quiz__opt"><input type="radio" name="deutsch" value="Muttersprache"><span>Muttersprache</span></label>
+							<label class="quiz__opt"><input type="radio" name="deutsch" value="Verhandlungssicher oder C2"><span>Verhandlungssicher oder C2</span></label>
+							<label class="quiz__opt"><input type="radio" name="deutsch" value="Fließend oder C1"><span>Fließend oder C1</span></label>
+							<label class="quiz__opt"><input type="radio" name="deutsch" value="Fortgeschrittene Kenntnisse (B1, B2)"><span>Fortgeschrittene Kenntnisse (B1, B2)</span></label>
+							<label class="quiz__opt"><input type="radio" name="deutsch" value="Grundlegende Kenntnisse (A1, A2)"><span>Grundlegende Kenntnisse (A1, A2)</span></label>
+						</div>
+					</fieldset>
+
+					<div class="quiz__step quiz__done" data-step="5" hidden>
+						<h3>Danke, das war es schon.</h3>
+						<p>Mit einem Klick öffnet sich Ihr E-Mail-Programm mit Ihren Antworten. Hängen Sie Ihren Lebenslauf an und senden Sie die E-Mail ab.</p>
+						<dl class="quiz__summary" data-quiz-summary></dl>
+						<a class="button button--primary" href="mailto:bewerbung@ib-buchholz.de?subject=Bewerbung" data-quiz-mail>E-Mail erstellen <svg class="icon" aria-hidden="true"><use href="../assets/images/icons.svg?v=20261021a#i-envelope-simple"></use></svg></a>
+					</div>
+
+					<button class="quiz__back" type="button" data-quiz-back hidden><svg class="icon quiz__back-icon" aria-hidden="true"><use href="../assets/images/icons.svg?v=20261021a#i-arrow-right"></use></svg>Zurück</button>
+				</form>
 			</div>
 		</section>
 
