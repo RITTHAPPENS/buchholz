@@ -82,65 +82,28 @@
 	}
 	const quiz = document.querySelector("[data-quiz]");
 	if (quiz) {
-		const steps = [...quiz.querySelectorAll("[data-step]")];
-		const stepLabel = quiz.querySelector("[data-quiz-step]");
-		const bar = quiz.querySelector("[data-quiz-bar]");
-		const back = quiz.querySelector("[data-quiz-back]");
-		const summary = quiz.querySelector("[data-quiz-summary]");
-		const mail = quiz.querySelector("[data-quiz-mail]");
-		const total = steps.length - 1;
-		let current = 0;
+		const links = document.querySelectorAll("[data-quiz-mail]");
+		const fields = [...quiz.querySelectorAll("fieldset")];
 
-		const questions = steps.slice(0, total).map((step) => ({
-			step,
-			label: step.querySelector("legend").textContent.trim(),
-		}));
+		const update = () => {
+			const lines = fields
+				.map((fieldset) => {
+					const answer = [...fieldset.querySelectorAll("input:checked")].map((input) => input.value).join(", ");
+					if (!answer) return null;
+					const question = fieldset.querySelector("legend").firstChild.textContent.trim();
+					return `${question}\n${answer}`;
+				})
+				.filter(Boolean);
 
-		const answerOf = (step) =>
-			[...step.querySelectorAll("input:checked")].map((input) => input.value).join(", ") || "Keine Angabe";
-
-		const show = (index) => {
-			current = index;
-			steps.forEach((step, i) => {
-				step.hidden = i !== index;
-			});
-			const done = index === total;
-			stepLabel.parentElement.hidden = done;
-			bar.style.width = `${(Math.min(index, total) / total) * 100}%`;
-			stepLabel.textContent = `Frage ${index + 1}`;
-			back.hidden = index === 0;
-
-			if (done) {
-				summary.replaceChildren();
-				const lines = [];
-				questions.forEach(({ step, label }) => {
-					const answer = answerOf(step);
-					const dt = document.createElement("dt");
-					const dd = document.createElement("dd");
-					dt.textContent = label;
-					dd.textContent = answer;
-					summary.append(dt, dd);
-					lines.push(`${label}\n${answer}`);
-				});
-				const body = `Guten Tag Herr Abt,\n\nhier meine Antworten aus dem Kurz-Check auf Ihrer Website:\n\n${lines.join("\n\n")}\n\nMeinen Lebenslauf finden Sie im Anhang.\n\nViele Grüße\n`;
-				mail.href = `mailto:bewerbung@ib-buchholz.de?subject=${encodeURIComponent("Bewerbung über den Kurz-Check")}&body=${encodeURIComponent(body)}`;
+			let href = `mailto:bewerbung@ib-buchholz.de?subject=${encodeURIComponent("Bewerbung")}`;
+			if (lines.length) {
+				const body = `Guten Tag Herr Abt,\n\nanbei meine Bewerbung. Vorab ein paar Angaben:\n\n${lines.join("\n\n")}\n\nViele Grüße\n`;
+				href += `&body=${encodeURIComponent(body)}`;
 			}
-
-			const focusTarget = steps[index].querySelector("input, h3, a");
-			if (focusTarget && quiz.dataset.started) focusTarget.focus({ preventScroll: true });
-			quiz.dataset.started = "true";
+			links.forEach((link) => link.setAttribute("href", href));
 		};
 
-		quiz.addEventListener("change", (event) => {
-			if (event.target.type === "radio") window.setTimeout(() => show(current + 1), 180);
-		});
-
-		quiz.querySelectorAll("[data-quiz-next]").forEach((button) =>
-			button.addEventListener("click", () => show(current + 1))
-		);
-
-		back.addEventListener("click", () => show(Math.max(0, current - 1)));
+		quiz.addEventListener("change", update);
 		quiz.addEventListener("submit", (event) => event.preventDefault());
-		show(0);
 	}
 })();
