@@ -1606,15 +1606,8 @@ a.contact__line:hover {
 	padding-bottom: var(--section);
 }
 
-.service__intro {
-	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-	gap: clamp(1.5rem, 4vw, 3.5rem);
+.service__lead {
 	margin-bottom: 2.5rem;
-}
-
-.service__intro p:not(.section-lead) {
-	color: var(--ink-2);
 }
 
 .service__subhead {
@@ -1677,15 +1670,6 @@ a.contact__line:hover {
 	margin-bottom: 0.5rem;
 }
 
-.tile__list--defs {
-	gap: 0.6rem;
-}
-
-.tile__list--defs strong {
-	font-weight: 500;
-	color: var(--ink);
-}
-
 .service--rows {
 	padding-bottom: var(--section);
 }
@@ -1693,6 +1677,7 @@ a.contact__line:hover {
 .srow {
 	display: grid;
 	grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+	align-items: start;
 	gap: clamp(1.5rem, 4vw, 4rem);
 	padding-block: clamp(2rem, 4vw, 3rem);
 	border-top: 1px solid var(--line);
@@ -1702,24 +1687,44 @@ a.contact__line:hover {
 	border-bottom: 1px solid var(--line);
 }
 
-.srow__head h2 {
-	font-size: var(--fs-h3);
+.srow__head {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
 }
 
-.srow__body {
-	display: grid;
-	grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-	gap: clamp(1.25rem, 3vw, 2.5rem);
+.srow__head .tile__icon {
+	margin: 0;
+}
+
+.srow__head h2,
+.tile__title,
+.service__subhead,
+.service .ga-feature__main h3 {
+	font-size: var(--fs-h3);
+	line-height: 1.25;
 }
 
 .srow__body p {
+	max-width: 60ch;
+	margin-bottom: 1rem;
 	color: var(--ink-2);
 }
 
+.service .tile__list,
+.srow .tile__list,
+.service .ga-feature__list li,
+.service .checklist li {
+	font-size: var(--fs-body);
+}
+
+.srow .tile__list {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	column-gap: 2rem;
+}
+
 @media (max-width: 64rem) {
-	.service__intro,
-	.srow,
-	.srow__body {
+	.srow {
 		grid-template-columns: 1fr;
 	}
 
@@ -1729,7 +1734,8 @@ a.contact__line:hover {
 }
 
 @media (max-width: 40rem) {
-	.hoai__grid {
+	.hoai__grid,
+	.srow .tile__list {
 		grid-template-columns: 1fr;
 	}
 }
