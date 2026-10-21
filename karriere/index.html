@@ -23,8 +23,8 @@
 	<link rel="manifest" href="../site.webmanifest">
 
 	<link rel="preload" href="../assets/fonts/readex-pro-latin.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="stylesheet" href="../assets/styles/main.css?v=20261021g">
-	<script src="../assets/scripts/main.js?v=20261021g" defer></script>
+	<link rel="stylesheet" href="../assets/styles/main.css?v=20261021h">
+	<script src="../assets/scripts/main.js?v=20261021h" defer></script>
 </head>
 <body>
 	<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
@@ -162,65 +162,73 @@
 
 		<section class="apply" id="bewerbung" aria-labelledby="bewerbung-titel">
 			<div class="container">
-				<h2 class="section-title" id="bewerbung-titel">Bewerbung</h2>
-				<p class="section-lead">Wählen Sie kurz aus, was auf Sie zutrifft. Ihre Angaben stehen dann direkt in der E-Mail, Sie hängen nur noch Ihren Lebenslauf an.</p>
-				<div class="apply__layout">
-					<form class="apply__form" data-quiz novalidate>
-						<fieldset class="apply__q">
-							<legend>Erfahrung in Gebäudeautomation, TGA oder MSR</legend>
-							<div class="chips">
-								<label class="chip"><input type="radio" name="erfahrung" value="Ja, aktuell in der Gebäudeautomation"><span>Ja, aktuell in der Gebäudeautomation</span></label>
-								<label class="chip"><input type="radio" name="erfahrung" value="Ja, aus der TGA/MSR"><span>Ja, aus der TGA/MSR</span></label>
-								<label class="chip"><input type="radio" name="erfahrung" value="Nein, möchte mich einarbeiten"><span>Nein, möchte mich einarbeiten</span></label>
-								<label class="chip"><input type="radio" name="erfahrung" value="Nein, keine Berührungspunkte"><span>Nein, keine Berührungspunkte</span></label>
-							</div>
-						</fieldset>
-						<fieldset class="apply__q">
-							<legend>Programme, mit denen Sie gearbeitet haben</legend>
-							<p class="apply__hint">Mehrfachauswahl möglich</p>
-							<div class="chips">
-								<label class="chip"><input type="checkbox" name="programme" value="TRIC/WSCAD/RR-Schema"><span>TRIC/WSCAD/RR-Schema</span></label>
-								<label class="chip"><input type="checkbox" name="programme" value="iTWO"><span>iTWO</span></label>
-								<label class="chip"><input type="checkbox" name="programme" value="Andere GA-Planungssoftware"><span>Andere GA-Planungssoftware</span></label>
-								<label class="chip"><input type="checkbox" name="programme" value="Anderes Ausschreibungsprogramm"><span>Anderes Ausschreibungsprogramm</span></label>
-							</div>
-						</fieldset>
-						<fieldset class="apply__q">
-							<legend>Berufserfahrung in GA, TGA oder MSR</legend>
-							<div class="chips">
-								<label class="chip"><input type="radio" name="jahre" value="Mehr als 5 Jahre"><span>Mehr als 5 Jahre</span></label>
-								<label class="chip"><input type="radio" name="jahre" value="2 bis 5 Jahre"><span>2 bis 5 Jahre</span></label>
-								<label class="chip"><input type="radio" name="jahre" value="Weniger als 2 Jahre"><span>Weniger als 2 Jahre</span></label>
-								<label class="chip"><input type="radio" name="jahre" value="Keine"><span>Keine</span></label>
-							</div>
-						</fieldset>
-						<fieldset class="apply__q">
-							<legend>Deutschkenntnisse</legend>
-							<div class="chips">
-								<label class="chip"><input type="radio" name="deutsch" value="Muttersprache"><span>Muttersprache</span></label>
-								<label class="chip"><input type="radio" name="deutsch" value="C2"><span>C2</span></label>
-								<label class="chip"><input type="radio" name="deutsch" value="C1"><span>C1</span></label>
-								<label class="chip"><input type="radio" name="deutsch" value="B1, B2"><span>B1, B2</span></label>
-								<label class="chip"><input type="radio" name="deutsch" value="A1, A2"><span>A1, A2</span></label>
-							</div>
-						</fieldset>
-					</form>
-					<aside class="apply__aside" aria-label="Ansprechpartner und Versand">
-						<div class="apply__person">
-							<img class="apply__photo" src="../assets/images/frederick-abt-480x600.webp" width="480" height="600" loading="lazy" alt="Porträt Frederick Abt">
-							<div>
-								<p class="apply__name">Frederick Abt</p>
-								<p class="apply__role">Geschäftsführer, Ihr Ansprechpartner</p>
-							</div>
+				<h2 class="section-title" id="bewerbung-titel">Ihre Bewerbung</h2>
+				<p class="section-lead">Vier kurze Fragen, dann öffnet sich Ihre E-Mail mit allen Angaben. Lebenslauf anhängen, absenden, fertig.</p>
+				<form class="wizard" data-wizard novalidate>
+					<div class="wizard__side">
+						<ol class="wizard__nav">
+							<li data-nav-step="0"><span class="wizard__num">1</span>Erfahrung</li>
+							<li data-nav-step="1"><span class="wizard__num">2</span>Programme</li>
+							<li data-nav-step="2"><span class="wizard__num">3</span>Berufserfahrung</li>
+							<li data-nav-step="3"><span class="wizard__num">4</span>Deutschkenntnisse</li>
+							<li data-nav-step="4"><span class="wizard__num">5</span>Absenden</li>
+						</ol>
+						<div class="wizard__contact">
+							<img class="wizard__photo" src="../assets/images/frederick-abt-480x600.webp" width="480" height="600" loading="lazy" alt="Porträt Frederick Abt">
+							<p><strong>Frederick Abt</strong>Ihr Ansprechpartner</p>
 						</div>
-						<p class="apply__label">Ihre Angaben</p>
-						<ul class="apply__summary" data-quiz-summary>
-							<li class="apply__empty">Noch nichts ausgewählt</li>
-						</ul>
-						<a class="button button--primary apply__send" href="mailto:bewerbung@ib-buchholz.de?subject=Bewerbung" data-quiz-mail>Bewerbung per E-Mail <svg class="icon" aria-hidden="true"><use href="../assets/images/icons.svg?v=20261021a#i-envelope-simple"></use></svg></a>
-						<p class="apply__alt">Direkt an <a href="mailto:bewerbung@ib-buchholz.de?subject=Bewerbung">bewerbung@ib-buchholz.de</a><br>oder <a href="tel:+498990019520">089 900 19 520</a></p>
-					</aside>
-				</div>
+					</div>
+					<div class="wizard__main">
+						<p class="wizard__count" aria-live="polite" data-wizard-count>Frage 1 von 4</p>
+						<fieldset class="wizard__step" data-step="0">
+							<legend>Haben Sie bereits Erfahrung in der Gebäudeautomation, TGA oder MSR gesammelt?</legend>
+							<div class="wizard__options">
+								<label class="option"><input type="radio" name="erfahrung" value="Ja, ich arbeite aktuell in der Gebäudeautomation"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Ja, ich arbeite aktuell in der Gebäudeautomation</span></label>
+								<label class="option"><input type="radio" name="erfahrung" value="Ja, ich komme aus der TGA/MSR und habe Berührungspunkte zur Gebäudeautomation"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Ja, ich komme aus der TGA/MSR und habe Berührungspunkte zur Gebäudeautomation</span></label>
+								<label class="option"><input type="radio" name="erfahrung" value="Nein, aber ich möchte mich in die Gebäudeautomation einarbeiten"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Nein, aber ich möchte mich in die Gebäudeautomation einarbeiten</span></label>
+								<label class="option"><input type="radio" name="erfahrung" value="Nein, ich habe keinerlei Berührungspunkte zu diesem Bereich"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Nein, ich habe keinerlei Berührungspunkte zu diesem Bereich</span></label>
+							</div>
+						</fieldset>
+						<fieldset class="wizard__step" data-step="1" hidden>
+							<legend>Mit welchen der folgenden Programme haben Sie bereits gearbeitet?</legend>
+							<p class="wizard__hint">Mehrfachauswahl möglich</p>
+							<div class="wizard__options">
+								<label class="option"><input type="checkbox" name="programme" value="TRIC/WSCAD/RR-Schema"><span class="option__mark" aria-hidden="true"></span><span class="option__text">TRIC/WSCAD/RR-Schema</span></label>
+								<label class="option"><input type="checkbox" name="programme" value="iTWO"><span class="option__mark" aria-hidden="true"></span><span class="option__text">iTWO</span></label>
+								<label class="option"><input type="checkbox" name="programme" value="Andere GA-Planungssoftware"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Andere GA-Planungssoftware</span></label>
+								<label class="option"><input type="checkbox" name="programme" value="Anderes Ausschreibungsprogramm"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Anderes Ausschreibungsprogramm</span></label>
+							</div>
+							<button class="button button--primary wizard__next" type="button" data-wizard-next>Weiter <svg class="icon" aria-hidden="true"><use href="../assets/images/icons.svg?v=20261021a#i-arrow-right"></use></svg></button>
+						</fieldset>
+						<fieldset class="wizard__step" data-step="2" hidden>
+							<legend>Wie viele Jahre Berufserfahrung haben Sie im Bereich Gebäudeautomation, TGA oder MSR?</legend>
+							<div class="wizard__options">
+								<label class="option"><input type="radio" name="jahre" value="Mehr als 5 Jahre"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Mehr als 5 Jahre</span></label>
+								<label class="option"><input type="radio" name="jahre" value="2 bis 5 Jahre"><span class="option__mark" aria-hidden="true"></span><span class="option__text">2 bis 5 Jahre</span></label>
+								<label class="option"><input type="radio" name="jahre" value="Weniger als 2 Jahre, aber erste Berührungspunkte"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Weniger als 2 Jahre, aber erste Berührungspunkte</span></label>
+								<label class="option"><input type="radio" name="jahre" value="Keine Berufserfahrung in diesem Bereich"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Keine Berufserfahrung in diesem Bereich</span></label>
+							</div>
+						</fieldset>
+						<fieldset class="wizard__step" data-step="3" hidden>
+							<legend>Wie gut sind Ihre Deutschkenntnisse?</legend>
+							<div class="wizard__options">
+								<label class="option"><input type="radio" name="deutsch" value="Muttersprache"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Muttersprache</span></label>
+								<label class="option"><input type="radio" name="deutsch" value="Verhandlungssicher oder C2"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Verhandlungssicher oder C2</span></label>
+								<label class="option"><input type="radio" name="deutsch" value="Fließend oder C1"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Fließend oder C1</span></label>
+								<label class="option"><input type="radio" name="deutsch" value="Fortgeschrittene Kenntnisse (B1, B2)"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Fortgeschrittene Kenntnisse (B1, B2)</span></label>
+								<label class="option"><input type="radio" name="deutsch" value="Grundlegende Kenntnisse (A1, A2)"><span class="option__mark" aria-hidden="true"></span><span class="option__text">Grundlegende Kenntnisse (A1, A2)</span></label>
+							</div>
+						</fieldset>
+						<div class="wizard__step wizard__done" data-step="4" hidden>
+							<h3 tabindex="-1">Danke, das war es schon.</h3>
+							<p>Ein Klick öffnet Ihr E-Mail-Programm mit Ihren Angaben. Hängen Sie Ihren Lebenslauf an und senden Sie die E-Mail ab.</p>
+							<dl class="wizard__summary" data-wizard-summary></dl>
+							<a class="button button--primary" href="mailto:bewerbung@ib-buchholz.de?subject=Bewerbung" data-wizard-mail>E-Mail erstellen <svg class="icon" aria-hidden="true"><use href="../assets/images/icons.svg?v=20261021a#i-envelope-simple"></use></svg></a>
+							<p class="wizard__alt">Oder direkt an <a href="mailto:bewerbung@ib-buchholz.de?subject=Bewerbung">bewerbung@ib-buchholz.de</a> bzw. telefonisch unter <a href="tel:+498990019520">089 900 19 520</a>.</p>
+						</div>
+						<button class="wizard__back" type="button" data-wizard-back hidden><svg class="icon wizard__back-icon" aria-hidden="true"><use href="../assets/images/icons.svg?v=20261021a#i-arrow-right"></use></svg>Zurück</button>
+					</div>
+				</form>
 			</div>
 		</section>
 

@@ -80,45 +80,66 @@
 			if (opener) opener.focus();
 		});
 	}
-	const quiz = document.querySelector("[data-quiz]");
-	if (quiz) {
-		const mail = document.querySelector("[data-quiz-mail]");
-		const summary = document.querySelector("[data-quiz-summary]");
-		const fields = [...quiz.querySelectorAll("fieldset")];
-		const empty = summary.innerHTML;
+	const wizard = document.querySelector("[data-wizard]");
+	if (wizard) {
+		const steps = [...wizard.querySelectorAll("[data-step]")];
+		const navItems = [...wizard.querySelectorAll("[data-nav-step]")];
+		const count = wizard.querySelector("[data-wizard-count]");
+		const back = wizard.querySelector("[data-wizard-back]");
+		const summary = wizard.querySelector("[data-wizard-summary]");
+		const mail = wizard.querySelector("[data-wizard-mail]");
+		const last = steps.length - 1;
+		let current = 0;
 
-		const update = () => {
-			const answers = fields
-				.map((fieldset) => ({
-					question: fieldset.querySelector("legend").textContent.trim(),
-					answer: [...fieldset.querySelectorAll("input:checked")].map((input) => input.value).join(", "),
-				}))
-				.filter((item) => item.answer);
+		const answers = () =>
+			steps.slice(0, last).map((step) => ({
+				question: step.querySelector("legend").textContent.trim(),
+				answer: [...step.querySelectorAll("input:checked")].map((input) => input.value).join(", ") || "Keine Angabe",
+			}));
 
-			if (answers.length) {
+		const show = (index, focus = true) => {
+			current = index;
+			steps.forEach((step, i) => {
+				step.hidden = i !== index;
+			});
+			navItems.forEach((item, i) => {
+				item.classList.toggle("is-done", i < index);
+				item.classList.toggle("is-current", i === index);
+			});
+			count.hidden = index === last;
+			count.textContent = `Frage ${index + 1} von ${last}`;
+			back.hidden = index === 0;
+
+			if (index === last) {
+				const items = answers();
 				summary.replaceChildren(
-					...answers.map(({ question, answer }) => {
-						const li = document.createElement("li");
-						const label = document.createElement("span");
-						label.textContent = question;
-						li.append(label, answer);
-						return li;
+					...items.flatMap(({ question, answer }) => {
+						const dt = document.createElement("dt");
+						const dd = document.createElement("dd");
+						dt.textContent = question;
+						dd.textContent = answer;
+						return [dt, dd];
 					})
 				);
-			} else {
-				summary.innerHTML = empty;
+				const lines = items.map(({ question, answer }) => `${question}\n${answer}`).join("\n\n");
+				const body = `Guten Tag Herr Abt,\n\nanbei meine Bewerbung. Vorab meine Angaben:\n\n${lines}\n\nViele Grüße\n`;
+				mail.href = `mailto:bewerbung@ib-buchholz.de?subject=${encodeURIComponent("Bewerbung")}&body=${encodeURIComponent(body)}`;
 			}
 
-			let href = `mailto:bewerbung@ib-buchholz.de?subject=${encodeURIComponent("Bewerbung")}`;
-			if (answers.length) {
-				const lines = answers.map(({ question, answer }) => `${question}: ${answer}`).join("\n");
-				const body = `Guten Tag Herr Abt,\n\nanbei meine Bewerbung. Vorab ein paar Angaben:\n\n${lines}\n\nViele Grüße\n`;
-				href += `&body=${encodeURIComponent(body)}`;
+			if (focus) {
+				const target = steps[index].querySelector("input, h3");
+				if (target) target.focus({ preventScroll: true });
 			}
-			mail.setAttribute("href", href);
 		};
 
-		quiz.addEventListener("change", update);
-		quiz.addEventListener("submit", (event) => event.preventDefault());
+		wizard.addEventListener("change", (event) => {
+			if (event.target.type === "radio") window.setTimeout(() => show(current + 1), 220);
+		});
+		wizard.querySelectorAll("[data-wizard-next]").forEach((button) =>
+			button.addEventListener("click", () => show(current + 1))
+		);
+		back.addEventListener("click", () => show(Math.max(0, current - 1)));
+		wizard.addEventListener("submit", (event) => event.preventDefault());
+		show(0, false);
 	}
 })();
