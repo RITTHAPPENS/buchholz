@@ -2691,71 +2691,92 @@ a.contact__line:hover {
 	color: var(--on-night);
 }
 
+/* Scroll-Effekt, gesteuert über main.js (.bus.is-live, --p, .is-on) */
+
+.bus.is-live .bus__track {
+	transform: translateY(calc((var(--p, 0) - 1) * 100%));
+}
+
+.bus.is-live .bus__packet {
+	opacity: 1;
+}
+
+.bus.is-live .node:not(.node--next) .node__dot {
+	background: var(--night);
+	box-shadow: 0 0 0 5px rgb(63 196 224 / 0);
+	transition: background-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+}
+
+.bus.is-live .node.is-on .node__dot {
+	background: var(--signal);
+	box-shadow: 0 0 0 6px rgb(63 196 224 / 0.22);
+	transform: scale(1.15);
+}
+
+.bus.is-live .node__card {
+	opacity: 0;
+	transform: translateX(-2.5rem);
+	filter: blur(6px);
+	transition: opacity 0.7s var(--ease-out), transform 0.8s var(--ease-out), filter 0.7s var(--ease-out), border-color 0.6s var(--ease-out);
+}
+
+.bus.is-live .node--flip .node__card {
+	transform: translateX(2.5rem);
+}
+
+.bus.is-live .node__card::before {
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 0.5s var(--ease-out) 0.15s;
+}
+
+.bus.is-live .node--flip .node__card::before {
+	transform-origin: left;
+}
+
+.bus.is-live .node.is-on .node__card {
+	opacity: 1;
+	transform: none;
+	filter: none;
+}
+
+.bus.is-live .node.is-on .node__card::before {
+	transform: scaleX(1);
+}
+
+.bus.is-live .node__year {
+	transition: color 0.5s var(--ease-out);
+	color: rgb(63 196 224 / 0.4);
+}
+
+.bus.is-live .node.is-on .node__year {
+	color: var(--signal);
+}
+
 @media (prefers-reduced-motion: no-preference) {
-	@supports (animation-timeline: view()) {
-		.bus {
-			view-timeline: --bus block;
-		}
+	.node--next .node__dot {
+		animation: node-wait 2.4s var(--ease-out) infinite;
+	}
 
-		.bus__track {
-			animation: bus-fill linear both;
-			animation-timeline: --bus;
-			animation-range: cover 35vh cover calc(100% - 65vh);
+	@keyframes node-wait {
+		50% {
+			box-shadow: 0 0 0 8px rgb(63 196 224 / 0.18);
 		}
+	}
+}
 
-		.bus__packet {
-			opacity: 1;
-		}
+@media (max-width: 48rem) {
+	.bus.is-live .node--flip .node__card,
+	.bus.is-live .node__card {
+		transform: translateX(1.5rem);
+	}
 
-		.node:not(.node--next) .node__dot {
-			animation: node-on linear both;
-			animation-timeline: view();
-			animation-range: cover 50% cover 58%;
-		}
+	.bus.is-live .node.is-on .node__card {
+		transform: none;
+	}
 
-		.node__card {
-			animation: node-card linear both;
-			animation-timeline: view();
-			animation-range: entry 10% cover 40%;
-		}
-
-		.node--next .node__dot {
-			animation: node-wait 2.4s var(--ease-out) infinite;
-		}
-
-		@keyframes bus-fill {
-			from {
-				transform: translateY(-100%);
-			}
-			to {
-				transform: translateY(0);
-			}
-		}
-
-		@keyframes node-on {
-			from {
-				background: var(--night);
-				box-shadow: 0 0 0 5px rgb(63 196 224 / 0);
-			}
-			to {
-				background: var(--signal);
-				box-shadow: 0 0 0 6px rgb(63 196 224 / 0.22);
-			}
-		}
-
-		@keyframes node-card {
-			from {
-				opacity: 0.25;
-				transform: translateY(1.5rem);
-				border-color: rgb(63 196 224 / 0.08);
-			}
-		}
-
-		@keyframes node-wait {
-			50% {
-				box-shadow: 0 0 0 8px rgb(63 196 224 / 0.18);
-			}
-		}
+	.bus.is-live .node__card::before {
+		transform-origin: left;
 	}
 }
 

@@ -155,4 +155,33 @@
 			map.classList.add("is-loaded");
 		});
 	});
+	const bus = document.querySelector(".bus");
+	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+	if (bus && !reduceMotion && "IntersectionObserver" in window) {
+		const nodes = [...bus.querySelectorAll(".node")];
+		let frame = 0;
+		let running = false;
+
+		const update = () => {
+			const rect = bus.getBoundingClientRect();
+			const line = window.innerHeight * 0.6;
+			const progress = Math.min(1, Math.max(0, (line - rect.top) / rect.height));
+			bus.style.setProperty("--p", progress.toFixed(4));
+			nodes.forEach((node) => {
+				const dot = node.querySelector(".node__dot").getBoundingClientRect();
+				node.classList.toggle("is-on", dot.top + dot.height / 2 <= line);
+			});
+			if (running) frame = window.requestAnimationFrame(update);
+		};
+
+		bus.classList.add("is-live");
+		update();
+
+		new IntersectionObserver(([entry]) => {
+			running = entry.isIntersecting;
+			window.cancelAnimationFrame(frame);
+			if (running) frame = window.requestAnimationFrame(update);
+			else update();
+		}).observe(bus);
+	}
 })();
