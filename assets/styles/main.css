@@ -2503,6 +2503,59 @@ a.contact__line:hover {
 	}
 }
 
+.feature-row {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 1.25rem;
+	align-items: stretch;
+}
+
+.feature-row + .feature-row {
+	margin-top: 1.25rem;
+}
+
+.feature-row .tile {
+	padding: clamp(1.5rem, 3vw, 2.25rem);
+	background: var(--brand-soft);
+	border-color: #c8d9ea;
+}
+
+.feature-row .tile__icon {
+	background: #fff;
+}
+
+.feature-row .tile p,
+.feature-row .tile .tile__list {
+	font-size: var(--fs-body);
+	color: #31475f;
+}
+
+.feature-row .tile p {
+	flex: 0 0 auto;
+}
+
+.feature-row__img {
+	width: 100%;
+	height: 100%;
+	min-height: 16rem;
+	object-fit: cover;
+	border-radius: var(--radius);
+}
+
+.feature-row .tile .tile__sub {
+	flex: 0 0 auto;
+	margin: -0.25rem 0 0.75rem;
+	font-size: var(--fs-small);
+	font-weight: 500;
+	color: var(--brand-strong);
+}
+
+@media (max-width: 64rem) {
+	.feature-row {
+		grid-template-columns: 1fr;
+	}
+}
+
 /* Bewegung */
 
 @media (prefers-reduced-motion: no-preference) {
