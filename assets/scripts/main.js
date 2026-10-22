@@ -142,4 +142,17 @@
 		wizard.addEventListener("submit", (event) => event.preventDefault());
 		show(0, false);
 	}
+	document.querySelectorAll("[data-map]").forEach((map) => {
+		const button = map.querySelector("[data-map-load]");
+		if (!button) return;
+		button.addEventListener("click", () => {
+			const frame = document.createElement("iframe");
+			frame.src = map.dataset.src;
+			frame.title = "Karte: Nibelungenstraße 84, 80639 München";
+			frame.loading = "lazy";
+			frame.referrerPolicy = "no-referrer";
+			map.replaceChildren(frame);
+			map.classList.add("is-loaded");
+		});
+	});
 })();
