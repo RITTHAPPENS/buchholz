@@ -2550,9 +2550,23 @@ a.contact__line:hover {
 	color: var(--brand-strong);
 }
 
+.feature-row--wide {
+	grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+}
+
+.feature-row__img--wide {
+	object-position: 20% center;
+}
+
 @media (max-width: 64rem) {
-	.feature-row {
+	.feature-row,
+	.feature-row--wide {
 		grid-template-columns: 1fr;
+	}
+
+	.feature-row__img--wide {
+		height: auto;
+		min-height: 0;
 	}
 }
 
