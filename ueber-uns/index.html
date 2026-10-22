@@ -23,8 +23,8 @@
 	<link rel="manifest" href="../site.webmanifest">
 
 	<link rel="preload" href="../assets/fonts/readex-pro-latin.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="stylesheet" href="../assets/styles/main.css?v=20261022b">
-	<script src="../assets/scripts/main.js?v=20261022b" defer></script>
+	<link rel="stylesheet" href="../assets/styles/main.css?v=20261022c">
+	<script src="../assets/scripts/main.js?v=20261022c" defer></script>
 </head>
 <body>
 	<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
@@ -61,7 +61,8 @@
 	</header>
 
 	<main id="inhalt">
-		<section class="page-hero" aria-labelledby="seiten-titel">
+		<section class="page-hero page-hero--photo" aria-labelledby="seiten-titel">
+			<img class="page-hero__photo" src="../assets/images/gespraech-bilderwand-1600x1067.webp" srcset="../assets/images/gespraech-bilderwand-960x640.webp 960w, ../assets/images/gespraech-bilderwand-1600x1067.webp 1600w" sizes="(min-width: 64rem) 60vw, 100vw" width="1600" height="1067" alt="">
 			<div class="container">
 				<h1 class="page-hero__title" id="seiten-titel">Über uns</h1>
 				<p class="page-hero__lead">Spezialisiert auf Gebäudeautomation. Seit 2000 aus München, für öffentliche und private Auftraggeber.</p>
@@ -113,51 +114,103 @@
 		</section>
 
 		<section class="history" aria-labelledby="chronik-titel">
-			<div class="container history__grid">
-				<div>
+			<div class="container">
+				<div class="history__head">
 					<h2 class="section-title" id="chronik-titel">Chronik</h2>
-					<p class="section-lead">Über 25 Jahre Gebäudeautomation und mehr als 800 Projekte.</p>
-					<ul class="members" aria-label="Mitgliedschaften">
-						<li><strong>Bayerische Ingenieurekammer-Bau</strong>Beratender Ingenieur</li>
-						<li><strong>VDI</strong>Fachingenieur Gebäudeautomation</li>
-					</ul>
+					<p class="section-lead">Über 25 Jahre Gebäudeautomation, Geschoss für Geschoss gewachsen. Mehr als 800 Projekte später planen wir weiter.</p>
 				</div>
-				<ol class="timeline">
-					<li>
-						<span class="timeline__year">2000</span>
-						<p>Dirk Buchholz gründet das Ingenieurbüro in München, mit Schwerpunkt Gebäudeautomation.</p>
+				<div class="tower">
+					<div class="tower__roof">
+						<div class="storey__level"><span class="storey__mark" aria-hidden="true"></span>DG</div>
+						<div class="tower__next">
+							<p><strong>Das nächste Geschoss planen wir gerade.</strong> Vielleicht mit Ihnen.</p>
+							<a class="text-link" href="../karriere/">Karriere <svg class="icon" aria-hidden="true"><use href="../assets/images/icons.svg?v=20261021a#i-arrow-right"></use></svg></a>
+						</div>
+					</div>
+					<ol class="tower__storeys" reversed>
+					<li class="storey">
+						<div class="storey__level"><span class="storey__mark" aria-hidden="true"></span>6. OG</div>
+						<div class="storey__body">
+							<p class="storey__year">2025</p>
+							<div>
+								<h3>Generationswechsel</h3>
+								<p>Frederick Abt übernimmt die Geschäftsführung, Franz Kaufmann wird Prokurist. Gründer Dirk Buchholz bleibt beratend an Bord.</p>
+							</div>
+						</div>
 					</li>
-					<li>
-						<span class="timeline__year">2008</span>
-						<p>Frederick Abt beginnt als Projektleiter.</p>
+					<li class="storey">
+						<div class="storey__level"><span class="storey__mark" aria-hidden="true"></span>5. OG</div>
+						<div class="storey__body">
+							<p class="storey__year">2021</p>
+							<div>
+								<h3>Zweiter Gesellschafter</h3>
+								<p>Franz Kaufmann steigt als Gesellschafter ein und verbreitert die Basis für die nächsten Jahre.</p>
+							</div>
+						</div>
 					</li>
-					<li>
-						<span class="timeline__year">2015</span>
-						<p>Frederick Abt wird Fachingenieur Gebäudeautomation VDI.</p>
+					<li class="storey">
+						<div class="storey__level"><span class="storey__mark" aria-hidden="true"></span>4. OG</div>
+						<div class="storey__body">
+							<p class="storey__year">2018</p>
+							<div>
+								<h3>Gesellschafter und Prokura</h3>
+								<p>Frederick Abt wird Gesellschafter und unterstützt als Prokurist die Geschäftsleitung.</p>
+							</div>
+						</div>
 					</li>
-					<li>
-						<span class="timeline__year">2017</span>
-						<p>Franz Kaufmann beginnt als Projektleiter.</p>
+					<li class="storey">
+						<div class="storey__level"><span class="storey__mark" aria-hidden="true"></span>3. OG</div>
+						<div class="storey__body">
+							<p class="storey__year">2017</p>
+							<div>
+								<h3>Verstärkung im Team</h3>
+								<p>Franz Kaufmann beginnt als Projektleiter, mit Master in nachhaltiger elektrischer Energieversorgung.</p>
+							</div>
+						</div>
 					</li>
-					<li>
-						<span class="timeline__year">2018</span>
-						<p>Frederick Abt wird Gesellschafter und Prokurist.</p>
+					<li class="storey">
+						<div class="storey__level"><span class="storey__mark" aria-hidden="true"></span>2. OG</div>
+						<div class="storey__body">
+							<p class="storey__year">2015</p>
+							<div>
+								<h3>Fachingenieur Gebäudeautomation VDI</h3>
+								<p>Frederick Abt schließt den Zertifikatslehrgang des VDI ab.</p>
+							</div>
+						</div>
 					</li>
-					<li>
-						<span class="timeline__year">2021</span>
-						<p>Franz Kaufmann wird Gesellschafter.</p>
+					<li class="storey">
+						<div class="storey__level"><span class="storey__mark" aria-hidden="true"></span>1. OG</div>
+						<div class="storey__body">
+							<p class="storey__year">2008</p>
+							<div>
+								<h3>Neuer Projektleiter</h3>
+								<p>Frederick Abt, Diplom-Ingenieur der Pharmatechnik, beginnt als Projektleiter im Büro.</p>
+							</div>
+						</div>
 					</li>
-					<li>
-						<span class="timeline__year">2025</span>
-						<p>Frederick Abt übernimmt die Geschäftsführung, Franz Kaufmann wird Prokurist. Dirk Buchholz bleibt beratend an Bord.</p>
+					<li class="storey">
+						<div class="storey__level"><span class="storey__mark" aria-hidden="true"></span>EG</div>
+						<div class="storey__body">
+							<p class="storey__year">2000</p>
+							<div>
+								<h3>Gründung</h3>
+								<p>Dirk Buchholz gründet das Ingenieurbüro in München, von Anfang an mit Schwerpunkt Gebäudeautomation.</p>
+							</div>
+						</div>
 					</li>
-				</ol>
+					</ol>
+					<div class="tower__ground" aria-hidden="true"></div>
+				</div>
+				<ul class="members" aria-label="Mitgliedschaften">
+					<li><strong>Bayerische Ingenieurekammer-Bau</strong>Beratender Ingenieur</li>
+					<li><strong>VDI</strong>Fachingenieur Gebäudeautomation</li>
+				</ul>
 			</div>
 		</section>
 
 		<section class="office" aria-labelledby="buero-titel">
 			<div class="container office__grid">
-				<img class="office__photo" src="../assets/images/besprechungsraum-1400x934.webp" srcset="../assets/images/besprechungsraum-800x534.webp 800w, ../assets/images/besprechungsraum-1400x934.webp 1400w" sizes="(min-width: 64rem) 40rem, 100vw" width="1400" height="934" loading="lazy" alt="Besprechung im Büro des Ingenieurbüros Buchholz">
+				<img class="office__photo" src="../assets/images/planbesprechung-garten-1400x934.webp" srcset="../assets/images/planbesprechung-garten-800x534.webp 800w, ../assets/images/planbesprechung-garten-1400x934.webp 1400w" sizes="(min-width: 64rem) 40rem, 100vw" width="1400" height="934" loading="lazy" alt="Zwei Kollegen besprechen einen Plan im Garten des Büros">
 				<div>
 					<h2 class="section-title" id="buero-titel">Unser Büro am Romanplatz</h2>
 					<p>Sie finden uns im 1. Obergeschoss der Nibelungenstraße 84 in München-Neuhausen, direkt am Romanplatz und gut mit Tram und Bus erreichbar.</p>
@@ -166,10 +219,8 @@
 			</div>
 		</section>
 
-		<section class="contact" aria-labelledby="kontakt-titel">
-			<img class="contact__bg" src="../assets/images/buero-nibelungenstrasse-1600x900.webp"
-				srcset="../assets/images/buero-nibelungenstrasse-960x540.webp 960w, ../assets/images/buero-nibelungenstrasse-1600x900.webp 1600w"
-				sizes="100vw" width="1600" height="900" loading="lazy" alt="">
+		<section class="contact contact--faded" aria-labelledby="kontakt-titel">
+			<img class="contact__bg" src="../assets/images/team-gesamt-1200x464.webp" srcset="../assets/images/team-gesamt-1200x464.webp 1200w, ../assets/images/team-gesamt-2400x928.webp 2400w" sizes="100vw" width="1200" height="464" loading="lazy" alt="">
 			<div class="container contact__grid">
 				<div class="contact__text">
 					<h2 class="section-title" id="kontakt-titel">Sprechen Sie uns an.</h2>
