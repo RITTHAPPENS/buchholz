@@ -2806,8 +2806,9 @@ a.contact__line:hover {
 }
 
 .about__team {
-	margin-top: 1.25rem;
-	max-width: 52ch;
+	margin-top: 1rem;
+	max-width: 60ch;
+	font-size: var(--fs-lead);
 	color: var(--ink-2);
 }
 
