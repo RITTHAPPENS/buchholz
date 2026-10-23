@@ -2662,35 +2662,6 @@ a.contact__line:hover {
 	color: var(--signal);
 }
 
-.members {
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 1rem;
-	margin-top: clamp(3rem, 6vw, 4.5rem);
-}
-
-.members li {
-	display: grid;
-	gap: 0.15rem;
-	padding: 1.1rem 1.35rem;
-	border-radius: var(--radius);
-}
-
-.members strong {
-	font-weight: 500;
-}
-
-.history .members li {
-	border: 1px solid rgb(238 244 250 / 0.14);
-	border-color: rgb(238 244 250 / 0.14);
-	background: var(--night-2);
-	color: var(--on-night-2);
-}
-
-.history .members strong {
-	color: var(--on-night);
-}
-
 /* Scroll-Effekt, gesteuert über main.js (.bus.is-live, --p, .is-on) */
 
 .bus.is-live .bus__track {
@@ -2781,10 +2752,6 @@ a.contact__line:hover {
 }
 
 @media (max-width: 48rem) {
-	.members {
-		grid-template-columns: 1fr;
-	}
-
 	.bus {
 		--x: 0.5rem;
 		--gap: 1.75rem;
@@ -2830,6 +2797,18 @@ a.contact__line:hover {
 
 .contact--faded::before {
 	background: linear-gradient(90deg, rgb(242 245 248 / 0.96) 0%, rgb(242 245 248 / 0.86) 45%, rgb(242 245 248 / 0.6) 100%);
+}
+
+.contact--faded .contact__card {
+	background: rgb(251 252 253 / 0.8);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+.about__team {
+	margin-top: 1.25rem;
+	max-width: 52ch;
+	color: var(--ink-2);
 }
 
 .contact--faded .contact__bg {
