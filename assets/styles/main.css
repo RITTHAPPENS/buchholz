@@ -2866,6 +2866,44 @@ a.contact__line:hover {
 	border: 0;
 }
 
+.contact--team {
+	padding-top: 0;
+}
+
+.contact--team::before {
+	content: none;
+}
+
+.contact__team {
+	display: block;
+	width: 100%;
+	max-width: 110rem;
+	height: auto;
+	margin-inline: auto;
+	mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+}
+
+.contact--team .contact__grid {
+	position: relative;
+	margin-top: clamp(-11rem, -12vw, -3rem);
+	align-items: end;
+}
+
+.contact--team .contact__text {
+	padding: clamp(1.25rem, 3vw, 2rem) clamp(1.25rem, 3vw, 2rem) 0 0;
+	background: linear-gradient(180deg, rgb(242 245 248 / 0) 0%, var(--ground) 30%);
+}
+
+@media (max-width: 64rem) {
+	.contact--team .contact__grid {
+		margin-top: 0;
+	}
+
+	.contact__team {
+		mask-image: linear-gradient(180deg, #000 75%, transparent 100%);
+	}
+}
+
 /* Bewegung */
 
 @media (prefers-reduced-motion: no-preference) {
