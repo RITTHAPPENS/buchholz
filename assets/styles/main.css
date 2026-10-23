@@ -2798,7 +2798,7 @@ a.contact__line:hover {
 .page-hero--photo .page-hero__photo--team {
 	width: min(72%, 70rem);
 	object-position: center 0%;
-	mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+	mask-image: linear-gradient(90deg, transparent 0%, transparent 18%, #000 50%);
 }
 
 .contact--faded::before {
@@ -2873,32 +2873,58 @@ a.contact__line:hover {
 }
 
 .team-cta {
+	position: relative;
+	isolation: isolate;
 	padding-block: var(--section);
-	background: var(--panel);
-	border-top: 1px solid var(--line);
+	background: var(--night);
+	color: var(--on-night);
+	overflow: hidden;
+}
+
+.team-cta::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background:
+		linear-gradient(rgb(63 196 224 / 0.06) 1px, transparent 1px) 0 0 / 3rem 3rem,
+		linear-gradient(90deg, rgb(63 196 224 / 0.06) 1px, transparent 1px) 0 0 / 3rem 3rem;
+	mask-image: linear-gradient(90deg, #000 0%, transparent 60%);
 }
 
 .team-cta__grid {
 	display: grid;
-	grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-	gap: clamp(2rem, 5vw, 4.5rem);
+	grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+	gap: clamp(2rem, 4vw, 3.5rem);
 	align-items: center;
 }
 
 .team-cta__photo {
-	margin: 0;
+	margin: 0 min(calc(-1 * var(--gutter)), calc((var(--container) - 100vw) / 2 - var(--gutter))) 0 0;
 }
 
 .team-cta__photo img {
 	display: block;
 	width: 100%;
 	height: auto;
-	border-radius: var(--radius);
-	box-shadow: 0 2px 4px rgb(13 26 43 / 0.06), 0 18px 40px -20px rgb(13 26 43 / 0.35);
+	opacity: 0.92;
+	mask-image:
+		linear-gradient(90deg, transparent 0%, #000 22%),
+		linear-gradient(180deg, transparent 0%, #000 12%, #000 86%, transparent 100%);
+	mask-composite: intersect;
+	-webkit-mask-composite: source-in;
 }
 
 .team-cta__text > p {
-	color: var(--ink-2);
+	color: var(--on-night-2);
+}
+
+.team-cta .contact__line {
+	color: var(--on-night);
+}
+
+.team-cta .contact__line .icon {
+	fill: var(--signal);
 }
 
 .team-cta__lines {
@@ -2906,12 +2932,21 @@ a.contact__line:hover {
 	gap: 0.25rem;
 	margin-top: 1.75rem;
 	padding-top: 1.5rem;
-	border-top: 1px solid var(--line);
+	border-top: 1px solid rgb(238 244 250 / 0.14);
 }
 
 @media (max-width: 64rem) {
 	.team-cta__grid {
 		grid-template-columns: 1fr;
+	}
+
+	.team-cta__photo {
+		order: -1;
+		margin: 0 calc(-1 * var(--gutter));
+	}
+
+	.team-cta__photo img {
+		mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
 	}
 }
 
