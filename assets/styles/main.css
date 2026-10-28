@@ -1965,6 +1965,12 @@ a.contact__line:hover {
 	margin-top: 2rem;
 }
 
+.perks__group {
+	display: grid;
+	gap: 1rem;
+	align-content: start;
+}
+
 .perks__list li {
 	display: flex;
 	align-items: center;
@@ -2057,9 +2063,13 @@ a.contact__line:hover {
 	}
 
 	.ways__grid,
-	.perks__list,
 	.bios {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.perks__list {
+		column-gap: 1.25rem;
+		font-size: 0.9375rem;
 	}
 
 	.bios .bio:first-child {
@@ -2067,9 +2077,14 @@ a.contact__line:hover {
 	}
 }
 
+@media (max-width: 48rem) {
+	.perks__list {
+		grid-template-columns: 1fr;
+	}
+}
+
 @media (max-width: 40rem) {
 	.ways__grid,
-	.perks__list,
 	.bios {
 		grid-template-columns: 1fr;
 	}
