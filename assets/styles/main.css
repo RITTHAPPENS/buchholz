@@ -2796,9 +2796,9 @@ a.contact__line:hover {
 }
 
 .page-hero--photo .page-hero__photo--team {
-	width: min(72%, 70rem);
-	object-position: center 0%;
-	mask-image: linear-gradient(90deg, transparent 0%, transparent 18%, #000 50%);
+	width: min(92%, 96rem);
+	object-position: center 12%;
+	mask-image: linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 0.2) 14%, rgb(0 0 0 / 0.6) 32%, #000 52%);
 }
 
 .contact--faded::before {
